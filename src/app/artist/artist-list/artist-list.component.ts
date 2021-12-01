@@ -26,8 +26,6 @@ export class ArtistListComponent implements OnInit {
 
   getArtist(name: string){
     this.artistService.getArtists(this.name)
-    .subscribe(console.log)
-
+    .subscribe(console.log);
   }
-
 }
