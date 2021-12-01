@@ -1,1 +1,8 @@
-<mat-card>Simple card</mat-card>
+<div class="container" fxLayout="row">
+    <h1>List.</h1>
+    <mat-card *ngFor="let artist of artists" style="margin-top:11px;">
+        <mat-card-header>
+            <mat-card-title>#{{artist.id}} {{artist.name}}</mat-card-title>
+        </mat-card-header>
+    </mat-card>
+</div>
