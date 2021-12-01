@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { map, Observable} from 'rxjs';
-import {ArtistInterface} from './model/artist';
+import {PaginatedArtists} from './model/artist';
 import {HttpClient} from '@angular/common/http'
 
 
@@ -15,7 +15,7 @@ export class ArtistsService {
     private http: HttpClient,
   ) { }
 
-  getArtists(name: string): Observable<ArtistInterface[]>{
-    return this.http.get<ArtistInterface[]>(`${this._APIURL}?query=${name}&offset=0`);
+  getArtists(name: string): Observable<PaginatedArtists[]>{
+    return this.http.get<PaginatedArtists[]>(`${this._APIURL}?query=${name}`);
   }
 }

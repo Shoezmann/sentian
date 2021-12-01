@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { ArtistsService } from '../artists.service';
 
-import { ArtistInterface } from '../model/artist';
+import { Artist} from '../model/artist';
 
 import {MatCardModule} from '@angular/material/card';
 
@@ -14,19 +14,23 @@ import {MatCardModule} from '@angular/material/card';
   styleUrls: ['./artist-list.component.scss']
 })
 export class ArtistListComponent implements OnInit {
-  artists: ArtistInterface[] = [];
-  name: string = 'Snopp';
+
+  artists: Artist[] = [];
+
+  name: string = 'Snop';
   constructor(
     private artistService: ArtistsService
   ) { }
 
   ngOnInit(): void {
-    
+    this.getArtist(this.name);
   }
 
   getArtist(name: string){
-    this.artistService.getArtists(this.name)
-    .subscribe(console.log)
+    this.artistService.getArtists(name)
+    .subscribe((data : any) => {
+      console.log(data)
+      this.artists = data.artists});
 
   }
 
