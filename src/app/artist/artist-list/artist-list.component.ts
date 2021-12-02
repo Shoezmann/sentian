@@ -17,7 +17,7 @@ export class ArtistListComponent implements OnInit {
 
   artists: Artist[] = [];
 
-  name: string = 'Snop';
+  name: string = 'Sno';
   constructor(
     private artistService: ArtistsService
   ) { }
@@ -30,7 +30,7 @@ export class ArtistListComponent implements OnInit {
     this.artistService.getArtists(name)
     .subscribe((data : any) => {
       console.log(data)
-      this.artists = data.artists});
+      this.artists = data});
 
   }
 }
