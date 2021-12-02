@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ArtistComponent } from './artist/artist.component';
 import { ArtistListComponent } from './artist/artist-list/artist-list.component';
-import { ArtistDetailsComponent } from './artist/artist-details/artist-details.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -18,8 +17,7 @@ import {MatCardModule} from '@angular/material/card';
   declarations: [
     AppComponent,
     ArtistComponent,
-    ArtistListComponent,
-    ArtistDetailsComponent,
+    ArtistListComponent
   ],
   imports: [
     BrowserModule,
