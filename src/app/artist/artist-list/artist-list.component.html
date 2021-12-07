@@ -1,6 +1,39 @@
-<div class="container" fxLayout="column">
-    <h1>List.</h1>
-    <ul *ngFor="let artist of artists" style="margin-top:11px;">
-        <li>#{{artist.id}} {{artist.name}}</li>
-    </ul>
+<div 
+class="container" 
+fxLayout="column" 
+fxFlexFill
+fxLayoutAlign="center center">
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <form>
+                <mat-form-field fxFlex="100%" appearance="fill">
+                  <mat-label>Select Artists</mat-label>
+                  <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"
+                  (optionSelected)="favouriteArtists($event.option)">
+                    <mat-option *ngFor="let option of artistsFiltered | async" [value]="option" >
+                      {{option.name}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+            </form>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <h1>Your Top 5.</h1>
+            <mat-accordion fxLayout="column" *ngFor="let artist of selectedArtists" class="" multi>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{artist.name}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      <mat-icon>music_note</mat-icon>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                </mat-expansion-panel>
+              </mat-accordion>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <h1></h1>
+    
 </div>
